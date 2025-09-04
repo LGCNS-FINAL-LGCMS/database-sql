@@ -16,7 +16,7 @@ create table lecture
     lecture_status varchar(255)
         constraint lecture_lecture_status_check
             check ((lecture_status)::text = ANY
-                   ((ARRAY ['REJECTED'::character varying, 'APPROVED'::character varying, 'SUBMITTED'::character varying, 'HIDDEN'::character varying])::text[])),
+                   ((ARRAY ['APPROVED'::character varying,'HIDDEN'::character varying])::text[])),
     level          varchar(255),
     member_id      bigint,
     nickname       varchar(255),
@@ -24,6 +24,8 @@ create table lecture
     review_count   bigint,
     thumbnail      varchar(255),
     title          varchar(255),
+    total_playtime int,
+    textbook       varchar(255),
     total_amount   bigint,
     updated_at     timestamp(6),
     video_status   varchar(255)
@@ -79,7 +81,7 @@ create table lecture_enrollment
     enrollment_status varchar(255)
         constraint lecture_enrollment_enrollment_status_check
             check ((enrollment_status)::text = ANY
-        ((ARRAY ['EXPIRED'::character varying, 'ENROLLED'::character varying, 'SUBMITTED'::character varying])::text[])),
+        ((ARRAY ['ENROLLED'::character varying, 'PENDING'::character varying])::text[])),
     member_id         bigint,
     lecture_id        varchar(255)
         constraint fk3p6tgpd0ceif2xskvn6b5b16r
