@@ -9,3 +9,5 @@ CREATE DATABASE member;
 CREATE DATABASE notification;
 CREATE DATABASE payment;
 CREATE DATABASE tutor;
+
+CREATE DATABASE airflow;
