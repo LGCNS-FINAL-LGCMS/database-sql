@@ -7,12 +7,12 @@ create table lecture
     average_star   double precision,
     category       varchar(255),
     created_at     timestamp(6),
-    description    varchar(255),
+    description    text,
     image_status   varchar(255)
         constraint lecture_image_status_check
             check ((image_status)::text = ANY
         ((ARRAY ['ENCODING'::character varying, 'DONE'::character varying, 'FAIL'::character varying])::text[])),
-    information    varchar(255),
+    information    text,
     lecture_status varchar(255)
         constraint lecture_lecture_status_check
             check ((lecture_status)::text = ANY
@@ -123,4 +123,3 @@ create table review_content
 
 alter table review_content
     owner to lgcms;
-
